@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Smart Exam Evaluation — ML-assisted grading, OCR and MCQ assessment." />
+  <title>Smart Exam Evaluation</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Mono:wght@300;400&family=DM+Sans:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="style.v6.3.css?v=6.3.0" />
+</head>
+
+<body>
+  <div id="scrollProgress"></div>
+  <div id="cursorDot"></div>
+  <div id="cursorRing"></div>
+
+  <div id="preloader">
+    <div class="pre-brand">SMART EXAM</div>
+    <div class="pre-number" id="preNumber">0</div>
+    <div class="pre-track"><div id="preFill"></div></div>
+    <div class="pre-label">INITIALISING EVALUATION WORKSPACE</div>
+  </div>
+
+  <nav id="mainNav">
+    <a class="nav-brand interactive" href="#top">
+      SMART EXAM
+      <span>EVALUATION</span>
+    </a>
+
+    <div class="nav-links">
+      <a class="interactive" href="#console">Console</a>
+      <a class="interactive" href="#capabilities">System</a>
+      <a class="interactive" href="#architecture">Architecture</a>
+    </div>
+
+    <div class="nav-actions">
+      <span id="backendStatus" class="backend-status">
+        <span class="backend-dot"></span>
+        <span id="backendStatusText">Checking backend</span>
+      </span>
+      <button class="nav-cta interactive" id="openConsoleBtn" type="button">
+        Open console
+      </button>
+    </div>
+  </nav>
+
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero" id="hero">
+      <canvas id="heroCanvas"></canvas>
+      <div class="hero-vignette"></div>
+      <div class="hero-grid"></div>
+
+      <div class="hero-badges">
+        <span>LOCAL ML SYSTEM · FROZEN CORE</span>
+        <span id="localClock">--:--:--</span>
+      </div>
+
+      <div class="hero-content" id="heroContent">
+        <p class="hero-eyebrow reveal-on-load">ML-ASSISTED ACADEMIC ASSESSMENT</p>
+
+        <h1 class="hero-title reveal-on-load">
+          Grade with <em>evidence.</em><br />
+          Review with
+          <span class="rotator-window">
+            <span id="heroRotator" class="rotator">
+              <span>clarity.</span>
+              <span>context.</span>
+              <span>confidence.</span>
+              <span>consistency.</span>
+            </span>
+          </span>
+        </h1>
+
+        <div class="hero-bottom reveal-on-load">
+          <p class="hero-description">
+            Descriptive-answer evaluation, handwriting OCR, trained-model comparison
+            and MCQ grading — with any-question grading connected to the frozen backend you already trust.
+          </p>
+
+          <div class="hero-buttons">
+            <button class="solid-btn interactive" id="heroConsoleBtn" type="button">
+              Start evaluating
+            </button>
+            <button class="outline-btn interactive" id="heroSystemBtn" type="button">
+              View system
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-watermark">10.0</div>
+
+      <div class="system-ticker">
+        <div class="ticker-track">
+          <span>QWEN V3.3.7 <b>FROZEN</b></span><i>◆</i>
+          <span>PP-OCRV5 <b>LOCAL</b></span><i>◆</i>
+          <span>VISION OCR <b>ACCURATE</b></span><i>◆</i>
+          <span>TRAINED ML <b>COMPARISON</b></span><i>◆</i>
+          <span>MCQ <b>INSTANT</b></span><i>◆</i>
+          <span>QWEN V3.3.7 <b>FROZEN</b></span><i>◆</i>
+          <span>PP-OCRV5 <b>LOCAL</b></span><i>◆</i>
+          <span>VISION OCR <b>ACCURATE</b></span><i>◆</i>
+          <span>TRAINED ML <b>COMPARISON</b></span><i>◆</i>
+          <span>MCQ <b>INSTANT</b></span><i>◆</i>
+        </div>
+      </div>
+    </section>
+
+    <!-- CAPABILITIES -->
+    <section id="capabilities" class="capability-band">
+      <article class="capability-cell sr">
+        <div class="cap-value">Qwen</div>
+        <div class="cap-label">Frozen grader</div>
+        <div class="cap-note">V3.3.7</div>
+      </article>
+      <article class="capability-cell sr">
+        <div class="cap-value">Dual</div>
+        <div class="cap-label">OCR modes</div>
+        <div class="cap-note">Fast / Accurate</div>
+      </article>
+      <article class="capability-cell sr">
+        <div class="cap-value">ML</div>
+        <div class="cap-label">Model comparison</div>
+        <div class="cap-note">Trained locally</div>
+      </article>
+      <article class="capability-cell sr">
+        <div class="cap-value">MCQ</div>
+        <div class="cap-label">Auto grading</div>
+        <div class="cap-note">Instant</div>
+      </article>
+    </section>
+
+    <!-- CONSOLE -->
+    <section id="console" class="console-section">
+      <div class="section-head sr">
+        <div>
+          <p class="section-eyebrow">01 · EVALUATION CONSOLE</p>
+          <h2>One workspace.<br /><em>Two grading modes.</em></h2>
+        </div>
+
+        <div class="mode-switch" role="tablist" aria-label="Evaluation mode">
+          <button id="descriptiveTab" class="mode-btn active interactive" type="button">
+            <span>01</span>
+            Descriptive
+          </button>
+          <button id="mcqTab" class="mode-btn interactive" type="button">
+            <span>02</span>
+            MCQ
+          </button>
+        </div>
+      </div>
+
+      <!-- DESCRIPTIVE VIEW -->
+      <section id="descriptiveView" class="mode-view active">
+        <div class="console-grid">
+          <article class="console-card tilt-card sr">
+            <div class="card-glow"></div>
+
+            <div class="card-head">
+              <div>
+                <p class="micro-label">QUESTION</p>
+                <h3>Assessment prompt</h3>
+              </div>
+              <span class="micro-tag">Any question</span>
+            </div>
+
+            <p class="field-label">Question source</p>
+            <div class="segmented question-source-switch">
+              <button
+                class="segment active interactive"
+                data-question-source="custom"
+                type="button"
+              >
+                Any question
+              </button>
+              <button
+                class="segment interactive"
+                data-question-source="benchmark"
+                type="button"
+              >
+                Benchmark Q1–Q5
+              </button>
+            </div>
+
+            <div id="customQuestionPanel" class="source-panel">
+              <label class="field-label" for="customQuestion">Question text</label>
+              <textarea
+                id="customQuestion"
+                class="control custom-question-box interactive"
+                placeholder="Type any descriptive question here, or scan a question image from the OCR panel..."
+              ></textarea>
+
+              <div class="prepare-row">
+                <button
+                  id="prepareCustomBtn"
+                  class="secondary-btn compact-action interactive ripple-btn"
+                  type="button"
+                >
+                  Generate grading key
+                </button>
+                <span id="customKeyStatus" class="key-status">Key not generated</span>
+              </div>
+
+              <div id="customPrepareMessage" class="message hidden"></div>
+            </div>
+
+            <div id="benchmarkQuestionPanel" class="source-panel hidden">
+              <label class="field-label" for="descriptiveQuestion">Benchmark question</label>
+              <select id="descriptiveQuestion" class="control interactive">
+                <option>Loading questions...</option>
+              </select>
+
+              <div id="questionCard" class="question-display">
+                <div class="question-top">
+                  <span id="questionId">—</span>
+                  <span>BENCHMARK</span>
+                </div>
+                <p id="questionText">Question will appear here.</p>
+              </div>
+            </div>
+
+            <details class="reference-card interactive">
+              <summary>
+                <span>Model / reference answer</span>
+                <span class="plus">+</span>
+              </summary>
+              <p id="modelAnswer">Generate a grading key to create the reference answer.</p>
+            </details>
+
+            <details id="customRubricCard" class="reference-card rubric-preview-card interactive hidden">
+              <summary>
+                <span>Generated rubric · 6 criteria</span>
+                <span class="plus">+</span>
+              </summary>
+              <ol id="customRubricPreview" class="rubric-preview-list"></ol>
+            </details>
+
+            <div class="hairline"></div>
+
+            <div class="card-head answer-head">
+              <div>
+                <p class="micro-label">STUDENT RESPONSE</p>
+                <h3>Answer editor</h3>
+              </div>
+              <span class="micro-tag muted">Type or scan</span>
+            </div>
+
+            <label class="field-label" for="studentAnswer">Student answer</label>
+            <textarea
+              id="studentAnswer"
+              class="control answer-box interactive"
+              placeholder="Type the student's answer here, or scan an answer image from the OCR panel..."
+            ></textarea>
+
+            <div class="human-row">
+              <label class="toggle-row interactive">
+                <input id="recordHumanScore" type="checkbox" />
+                <span class="toggle"></span>
+                <span>Record human score for comparison</span>
+              </label>
+
+              <div id="humanScoreWrap" class="human-score hidden">
+                <label class="field-label" for="humanScore">Human score</label>
+                <input
+                  id="humanScore"
+                  class="control interactive"
+                  type="number"
+                  min="0"
+                  max="10"
+                  value="5"
+                  step="0.5"
+                />
+              </div>
+            </div>
+
+            <button id="evaluateBtn" class="evaluate-btn interactive ripple-btn" type="button">
+              <span>Evaluate answer</span>
+              <span class="arrow">↗</span>
+            </button>
+          </article>
+
+          <aside class="console-card ocr-card tilt-card sr">
+            <div class="card-glow"></div>
+
+            <div class="card-head">
+              <div>
+                <p class="micro-label">QUESTION + ANSWER OCR</p>
+                <h3>Import written work</h3>
+              </div>
+              <span class="live-badge"><i></i>LOCAL</span>
+            </div>
+
+            <p class="support-copy">
+              Scan either the question or the student answer. OCR results stay in a
+              review editor first, so you can inspect and correct the text before using it.
+            </p>
+
+            <p class="field-label">Send extracted text to</p>
+            <div class="segmented ocr-target-switch">
+              <button
+                class="segment interactive"
+                data-ocr-target="question"
+                type="button"
+              >
+                Question
+              </button>
+              <button
+                class="segment active interactive"
+                data-ocr-target="answer"
+                type="button"
+              >
+                Student answer
+              </button>
+            </div>
+
+            <p id="ocrTargetHelp" class="microcopy target-help">
+              Extract the text first, review it, then choose Use as student answer.
+            </p>
+
+            <label id="dropzone" class="dropzone interactive" for="ocrFile">
+              <input
+                id="ocrFile"
+                type="file"
+                accept=".png,.jpg,.jpeg,image/png,image/jpeg"
+              />
+
+              <div class="upload-system">
+                <div class="upload-ring ring-outer"></div>
+                <div class="upload-ring ring-inner"></div>
+                <div class="upload-core">↑</div>
+              </div>
+
+              <strong id="dropzoneTitle">Drop answer image</strong>
+              <small>PNG · JPG · JPEG</small>
+              <span class="browse-chip">Choose file</span>
+            </label>
+
+            <div id="filePreview" class="file-preview hidden">
+              <img id="previewImage" alt="Uploaded handwritten work preview" />
+              <div class="file-copy">
+                <strong id="fileName"></strong>
+                <small id="fileMeta"></small>
+              </div>
+              <button id="removeFileBtn" class="icon-btn interactive" type="button">×</button>
+            </div>
+
+            <div class="hairline"></div>
+
+            <p class="field-label">Recognition mode</p>
+
+            <div class="segmented">
+              <button class="segment active interactive" data-ocr-mode="fast" type="button">
+                Fast
+              </button>
+              <button class="segment interactive" data-ocr-mode="accurate" type="button">
+                Accurate
+              </button>
+            </div>
+
+            <p id="ocrModeHelp" class="microcopy">
+              Best for clear, normal handwriting. Usually around 1–2 seconds.
+            </p>
+
+            <button id="extractBtn" class="secondary-btn interactive ripple-btn" type="button" disabled>
+              Extract text
+            </button>
+
+            <div id="ocrMessage" class="message hidden"></div>
+
+            <section id="ocrReviewPanel" class="ocr-review hidden" aria-live="polite">
+              <div class="card-head ocr-review-head">
+                <div>
+                  <p class="micro-label">EXTRACTED TEXT</p>
+                  <h3>Review recognition</h3>
+                </div>
+                <span id="ocrReviewTarget" class="micro-tag">Student answer</span>
+              </div>
+
+              <p class="microcopy ocr-review-copy">
+                Compare the recognized text with the uploaded image. Correct OCR mistakes before applying it.
+              </p>
+
+              <textarea
+                id="ocrExtractedText"
+                class="control ocr-extracted-editor interactive"
+                spellcheck="true"
+                placeholder="Recognized text will appear here..."
+              ></textarea>
+
+              <div class="ocr-review-meta">
+                <span><small>MODE</small><strong id="ocrReviewMode">—</strong></span>
+                <span><small>ENGINE</small><strong id="ocrReviewEngine">—</strong></span>
+                <span><small>TIME</small><strong id="ocrReviewTime">—</strong></span>
+              </div>
+
+              <button id="ocrUseBtn" class="secondary-btn interactive ripple-btn" type="button">
+                Use as student answer
+              </button>
+
+              <div class="ocr-review-actions">
+                <button id="ocrCopyBtn" class="ocr-mini-btn interactive" type="button">Copy</button>
+                <button id="ocrRerunBtn" class="ocr-mini-btn interactive" type="button">Re-run OCR</button>
+                <button id="ocrClearBtn" class="ocr-mini-btn interactive" type="button">Clear</button>
+              </div>
+
+              <p id="ocrReviewStatus" class="microcopy ocr-review-status">
+                Not applied yet · review before use
+              </p>
+            </section>
+          </aside>
+        </div>
+
+        <!-- RESULTS -->
+        <section id="evaluationResults" class="results hidden">
+          <div class="section-head result-head">
+            <div>
+              <p class="section-eyebrow">02 · GRADING ANALYSIS</p>
+              <h2>Score, evidence<br /><em>and comparison.</em></h2>
+            </div>
+          </div>
+
+          <div class="score-layout">
+            <article class="score-card sr">
+              <canvas id="scoreCanvas"></canvas>
+              <p class="micro-label">FINAL PREDICTED MARK</p>
+              <div class="score-value">
+                <strong id="finalScore">0</strong>
+                <span>/10</span>
+              </div>
+              <p id="graderMeta" class="microcopy">—</p>
+            </article>
+
+            <div class="metrics">
+              <article class="metric sr">
+                <span>Core correctness</span>
+                <strong id="metricCore">0/5</strong>
+                <i></i>
+              </article>
+              <article class="metric sr">
+                <span>Rubric support</span>
+                <strong id="metricRubric">0/6</strong>
+                <i></i>
+              </article>
+              <article class="metric sr">
+                <span>Contradiction penalty</span>
+                <strong id="metricPenalty">-0</strong>
+                <i></i>
+              </article>
+              <article class="metric sr">
+                <span>Grading time</span>
+                <strong id="metricTime">0.00s</strong>
+                <i></i>
+              </article>
+            </div>
+          </div>
+
+          <div id="alertsArea" class="alerts-area"></div>
+
+          <div class="analysis-grid">
+            <article class="analysis-card sr">
+              <div class="card-head">
+                <div>
+                  <p class="micro-label">RUBRIC EVIDENCE</p>
+                  <h3>Criterion-level support</h3>
+                </div>
+                <span class="micro-tag">Evidence</span>
+              </div>
+              <div id="rubricList" class="rubric-list"></div>
+            </article>
+
+            <article class="analysis-card sr">
+              <div class="card-head">
+                <div>
+                  <p id="comparisonEyebrow" class="micro-label">PROJECT COMPARISON</p>
+                  <h3 id="comparisonTitle">Model scores</h3>
+                </div>
+                <span id="comparisonTag" class="micro-tag">ML</span>
+              </div>
+
+              <div class="comparison-grid">
+                <div class="comparison-cell">
+                  <span id="comparisonLabel1">Our trained model</span>
+                  <strong id="trainedScore">—</strong>
+                  <small id="trainedModelName">—</small>
+                </div>
+                <div class="comparison-cell">
+                  <span id="comparisonLabel2">Semantic baseline</span>
+                  <strong id="semanticScore">—</strong>
+                  <small id="comparisonMeta2"></small>
+                </div>
+                <div class="comparison-cell">
+                  <span id="comparisonLabel3">Keyword baseline</span>
+                  <strong id="baselineScore">—</strong>
+                  <small id="comparisonMeta3"></small>
+                </div>
+              </div>
+
+              <div class="keyword-section">
+                <p id="matchedKeywordsLabel" class="field-label">Matched legacy keywords</p>
+                <div id="matchedKeywords" class="keyword-chips"></div>
+              </div>
+
+              <div class="keyword-section">
+                <p id="missingKeywordsLabel" class="field-label">Missing legacy keywords</p>
+                <div id="missingKeywords" class="keyword-chips muted"></div>
+              </div>
+
+              <div id="comparisonFallback" class="message hidden"></div>
+            </article>
+          </div>
+        </section>
+      </section>
+
+      <!-- MCQ VIEW -->
+      <section id="mcqView" class="mode-view">
+        <div class="console-grid">
+          <article class="console-card tilt-card">
+            <div class="card-glow"></div>
+
+            <div class="card-head">
+              <div>
+                <p class="micro-label">MCQ QUESTION</p>
+                <h3>Select and answer</h3>
+              </div>
+              <span class="micro-tag">Instant</span>
+            </div>
+
+            <label class="field-label" for="mcqQuestion">Question</label>
+            <select id="mcqQuestion" class="control interactive">
+              <option>Loading questions...</option>
+            </select>
+
+            <div class="question-display">
+              <div class="question-top">
+                <span id="mcqQuestionId">—</span>
+                <span>MCQ</span>
+              </div>
+              <p id="mcqQuestionText">Question will appear here.</p>
+            </div>
+
+            <div id="mcqOptions" class="mcq-options"></div>
+
+            <button id="submitMcqBtn" class="evaluate-btn interactive ripple-btn" type="button">
+              <span>Submit answer</span>
+              <span class="arrow">↗</span>
+            </button>
+          </article>
+
+          <aside class="console-card mcq-info tilt-card">
+            <div class="card-glow"></div>
+
+            <div class="card-head">
+              <div>
+                <p class="micro-label">VALIDATION</p>
+                <h3>Immediate feedback</h3>
+              </div>
+              <span class="live-badge"><i></i>READY</span>
+            </div>
+
+            <p class="support-copy">
+              The selected answer is checked directly against the stored answer key.
+            </p>
+
+            <div class="info-row">
+              <span>Evaluation</span>
+              <strong>Rule-based</strong>
+            </div>
+            <div class="info-row">
+              <span>Response</span>
+              <strong>Instant</strong>
+            </div>
+            <div class="info-row">
+              <span>Backend</span>
+              <strong>Frozen</strong>
+            </div>
+
+            <div id="mcqResult" class="mcq-result hidden"></div>
+          </aside>
+        </div>
+      </section>
+    </section>
+
+    <!-- ARCHITECTURE / DESIGN BREAK -->
+    <section id="architecture" class="architecture">
+      <div class="section-head sr">
+        <div>
+          <p class="section-eyebrow">03 · SYSTEM ARCHITECTURE</p>
+          <h2>Polished outside.<br /><em>Frozen where it matters.</em></h2>
+        </div>
+      </div>
+
+      <div class="architecture-grid">
+        <article class="architecture-card sr interactive">
+          <span>01</span>
+          <p class="arch-label">INTERFACE</p>
+          <h3>Custom Web UI</h3>
+          <p>Independent presentation layer with motion, responsive layouts and zero grading changes.</p>
+        </article>
+
+        <article class="architecture-card sr interactive">
+          <span>02</span>
+          <p class="arch-label">BACKEND</p>
+          <h3>FastAPI Core</h3>
+          <p>The existing backend remains the source of truth for questions, grading and MCQ evaluation.</p>
+        </article>
+
+        <article class="architecture-card sr interactive">
+          <span>03</span>
+          <p class="arch-label">OCR</p>
+          <h3>Local Recognition</h3>
+          <p>Fast and accurate handwriting modes remain connected through the existing OCR endpoint.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="closing sr">
+      <div id="closingGlow" class="closing-glow"></div>
+      <p class="section-eyebrow">SMART EXAM EVALUATION</p>
+      <h2>Built to make grading<br /><em>feel less mechanical.</em></h2>
+      <button class="closing-btn interactive" id="closingConsoleBtn" type="button">
+        Open evaluation console
+      </button>
+    </section>
+  </main>
+
+  <footer>
+    <div>
+      <strong>SMART EXAM EVALUATION</strong>
+      <p>ML-assisted descriptive grading, local OCR and MCQ assessment.</p>
+    </div>
+    <div class="footer-right">
+      <span>Frontend V6.3 · preserved V6 design</span>
+      <span>Frozen grading core</span>
+    </div>
+  </footer>
+
+  <button id="backToTop" class="back-top interactive" type="button" aria-label="Back to top">↑</button>
+  <div id="toast" class="toast hidden"></div>
+
+  <script src="app.v6.3.js?v=6.3.0"></script>
+</body>
+</html>

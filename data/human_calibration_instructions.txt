@@ -1,0 +1,48 @@
+HUMAN CALIBRATION DATA — COLLECTION GUIDE
+
+Goal
+----
+Collect 50 genuinely human-written answers:
+10 answers for each of Q1-Q5.
+
+Important
+---------
+Do NOT generate these answers with ChatGPT or another LLM.
+We need real human wording, mistakes, omissions, and partial understanding.
+
+Collection
+----------
+1. Give the question to a person.
+2. Let them answer naturally without showing the model answer or rubric.
+3. Paste their answer into student_answer.
+4. Grade it manually from 0 to 10 using the rubric.
+5. Put the score in human_score.
+6. Optionally explain the score briefly in grader_notes.
+
+Desired final coverage
+----------------------
+The priority is real answers scoring 0-6.
+
+For EACH question, try to obtain a spread roughly like:
+- 0-2 marks: at least 3 answers
+- 3-4 marks: at least 3 answers
+- 5-6 marks: at least 3 answers
+- any remaining slot: natural answer of any score
+
+Do not force a person to deliberately write a particular score.
+Collect naturally first, then recruit more responses for score ranges
+that are missing.
+
+Scoring consistency
+-------------------
+Use the same interpretation of the six atomic rubric criteria for all answers.
+Do not change a score because the answer is long, confident, or well-written
+unless that writing actually demonstrates rubric-relevant knowledge.
+
+Do not overwrite:
+- training_dataset.csv
+- training_dataset_v2c.csv
+- any V1/V2/V3 model artifact
+
+Only edit:
+data/human_calibration_50.csv

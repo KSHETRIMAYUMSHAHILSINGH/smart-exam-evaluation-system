@@ -1,0 +1,43 @@
+{
+  "dataset_rows": 100,
+  "human_group_rows": 20,
+  "synthetic_augmented_rows": 80,
+  "questions": 5,
+  "split": {
+    "train": 70,
+    "validation": 15,
+    "test": 15
+  },
+  "validation_models": {
+    "Ridge": {
+      "mae": 1.7481,
+      "rmse": 2.4848,
+      "r2": 0.0077,
+      "qwk": 0.3628,
+      "pearson": 0.5144
+    },
+    "RandomForest": {
+      "mae": 1.5548,
+      "rmse": 2.0566,
+      "r2": 0.3202,
+      "qwk": 0.5442,
+      "pearson": 0.6574
+    },
+    "GradientBoosting": {
+      "mae": 1.696,
+      "rmse": 2.2325,
+      "r2": 0.199,
+      "qwk": 0.469,
+      "pearson": 0.5801
+    }
+  },
+  "selected_model": "RandomForest",
+  "held_out_test": {
+    "mae": 0.7029,
+    "rmse": 0.8078,
+    "r2": 0.9247,
+    "qwk": 0.8831,
+    "pearson": 0.9774
+  },
+  "note": "Prototype results use 20 group-graded answers plus 80 synthetic augmented answers; synthetic labels are not a substitute for a larger real human-graded dataset."
+}

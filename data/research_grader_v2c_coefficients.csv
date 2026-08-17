@@ -1,0 +1,13 @@
+feature,standardized_coefficient
+no_bigram_repetition,1.0404050376356526
+criterion_entailment_mean,0.770369192251428
+criterion_evidence_top3,0.6030438255097296
+contradiction_safety_min,0.308179263589257
+no_keyword_stuffing,0.19713252060996314
+supported_sentence_ratio,0.14251256486659578
+contradiction_safety_mean,0.09824602102422128
+criterion_evidence_min,0.005929425367452076
+criterion_evidence_mean,0.0
+criterion_coverage_050,0.0
+criterion_coverage_070,0.0
+evidence_density,0.0

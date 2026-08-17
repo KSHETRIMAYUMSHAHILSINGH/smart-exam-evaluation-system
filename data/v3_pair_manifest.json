@@ -1,0 +1,33 @@
+{
+  "version": "v3_contrastive_data_v1",
+  "source_dataset": "/Users/lemon111/smart-exam-eval-2/data/training_dataset_v2c.csv",
+  "rubric_file": "/Users/lemon111/smart-exam-eval-2/data/rubric_concepts_v2c.json",
+  "example_count": 135,
+  "infonce_pair_count": 705,
+  "hierarchical_pair_count": 1755,
+  "difference_marker": {
+    "method": "DiffCL lexical heuristic: mean(Jaccard, word-level edit similarity)",
+    "thresholds": {
+      "DIFF0": ">=0.80",
+      "DIFF1": "0.60-0.80",
+      "DIFF2": "0.35-0.60",
+      "DIFF3": "0.20-0.35",
+      "DIFF4": "<=0.20 or negation mismatch"
+    }
+  },
+  "score_adaptation": {
+    "raw_target": "human_score 0-10",
+    "auxiliary_5_level": {
+      "0": "0-2",
+      "1": "3-4",
+      "2": "5-6",
+      "3": "7-8",
+      "4": "9-10"
+    }
+  },
+  "contrastive_design": {
+    "infonce": "exact same-score positives; same-question weight=1.0; cross-question weight=0.35",
+    "hierarchical": "within-question; score gap <=1 close, >1 far"
+  },
+  "leakage_rule": "V3 trainer MUST split rows first and remove every contrastive pair containing a held-out row before fitting each fold."
+}

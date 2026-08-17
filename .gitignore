@@ -1,0 +1,45 @@
+# Private configuration
+.env
+.env.local
+.env.*.local
+
+# Python environments
+venv/
+.venv/
+env/
+
+# Python cache
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# macOS / IDE
+.DS_Store
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Local Qwen model
+models/Qwen3.5-4B-MLX-4bit
+models/Qwen3.5-4B-MLX-4bit/
+
+# OCR generated output
+paddle-ocr-test/output/
+paddle-ocr-test/handwriting.png
+
+# SQLite temporary files
+*.db-wal
+*.db-shm
+*.db-journal
+
+# Build/archive output
+dist/
+build/
+*.egg-info/
+*.zip
+
+venv

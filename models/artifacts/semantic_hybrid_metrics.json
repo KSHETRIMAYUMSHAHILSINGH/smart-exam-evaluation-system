@@ -1,0 +1,336 @@
+{
+  "dataset": {
+    "original_rows": 140,
+    "cleaned_rows": 135,
+    "human_rows": 20,
+    "synthetic_rows": 115,
+    "questions": 5
+  },
+  "cleaning": {
+    "original_rows": 140,
+    "cleaned_rows": 135,
+    "duplicate_groups": 5,
+    "conflicting_duplicate_groups": 5,
+    "rows_removed": 5
+  },
+  "encoder": "all-MiniLM-L6-v2",
+  "validation_method": "Leave-One-Question-Out cross-validation",
+  "length_feature": {
+    "name": "length_adequacy_70",
+    "threshold": 0.7,
+    "behavior": "Full adequacy once answer reaches 70% of reference length; no reward for additional verbosity."
+  },
+  "sample_weights": {
+    "human_group": 5.0,
+    "synthetic_augmented": 1.0
+  },
+  "candidate_models": {
+    "Ridge": {
+      "overall": {
+        "mae": 1.1832,
+        "rmse": 1.4747,
+        "r2": 0.6454,
+        "qwk": 0.7988,
+        "pearson": 0.8253
+      },
+      "human_only": {
+        "mae": 0.8954,
+        "rmse": 1.1053,
+        "r2": 0.0227,
+        "qwk": 0.4615,
+        "pearson": 0.6096
+      },
+      "synthetic_only": {
+        "mae": 1.2332,
+        "rmse": 1.5299,
+        "r2": 0.5636,
+        "qwk": 0.7766,
+        "pearson": 0.811
+      },
+      "human_weighted_mae": 1.0761,
+      "folds": {
+        "Q1": {
+          "mae": 1.2112,
+          "rmse": 1.4939,
+          "r2": 0.6361,
+          "qwk": 0.7682,
+          "pearson": 0.8116
+        },
+        "Q2": {
+          "mae": 1.3319,
+          "rmse": 1.6285,
+          "r2": 0.5676,
+          "qwk": 0.7665,
+          "pearson": 0.8028
+        },
+        "Q3": {
+          "mae": 1.1978,
+          "rmse": 1.4885,
+          "r2": 0.6387,
+          "qwk": 0.8313,
+          "pearson": 0.8445
+        },
+        "Q4": {
+          "mae": 1.099,
+          "rmse": 1.3478,
+          "r2": 0.7038,
+          "qwk": 0.7937,
+          "pearson": 0.8618
+        },
+        "Q5": {
+          "mae": 1.076,
+          "rmse": 1.3994,
+          "r2": 0.6806,
+          "qwk": 0.8309,
+          "pearson": 0.8403
+        }
+      }
+    },
+    "RandomForest": {
+      "overall": {
+        "mae": 1.0507,
+        "rmse": 1.2846,
+        "r2": 0.7309,
+        "qwk": 0.8532,
+        "pearson": 0.8563
+      },
+      "human_only": {
+        "mae": 0.6665,
+        "rmse": 0.8777,
+        "r2": 0.3837,
+        "qwk": 0.7222,
+        "pearson": 0.7903
+      },
+      "synthetic_only": {
+        "mae": 1.1175,
+        "rmse": 1.3428,
+        "r2": 0.6638,
+        "qwk": 0.8199,
+        "pearson": 0.8238
+      },
+      "human_weighted_mae": 0.9078,
+      "folds": {
+        "Q1": {
+          "mae": 1.0498,
+          "rmse": 1.24,
+          "r2": 0.7492,
+          "qwk": 0.8445,
+          "pearson": 0.8847
+        },
+        "Q2": {
+          "mae": 1.0646,
+          "rmse": 1.2534,
+          "r2": 0.7438,
+          "qwk": 0.8546,
+          "pearson": 0.8729
+        },
+        "Q3": {
+          "mae": 1.1956,
+          "rmse": 1.496,
+          "r2": 0.635,
+          "qwk": 0.8462,
+          "pearson": 0.8494
+        },
+        "Q4": {
+          "mae": 0.9059,
+          "rmse": 1.0889,
+          "r2": 0.8067,
+          "qwk": 0.8838,
+          "pearson": 0.9053
+        },
+        "Q5": {
+          "mae": 1.0377,
+          "rmse": 1.3109,
+          "r2": 0.7198,
+          "qwk": 0.8382,
+          "pearson": 0.8659
+        }
+      }
+    },
+    "ExtraTrees": {
+      "overall": {
+        "mae": 1.0473,
+        "rmse": 1.2891,
+        "r2": 0.729,
+        "qwk": 0.8395,
+        "pearson": 0.8562
+      },
+      "human_only": {
+        "mae": 0.5635,
+        "rmse": 0.776,
+        "r2": 0.5182,
+        "qwk": 0.7222,
+        "pearson": 0.787
+      },
+      "synthetic_only": {
+        "mae": 1.1315,
+        "rmse": 1.3587,
+        "r2": 0.6558,
+        "qwk": 0.8029,
+        "pearson": 0.8192
+      },
+      "human_weighted_mae": 0.8673,
+      "folds": {
+        "Q1": {
+          "mae": 1.0429,
+          "rmse": 1.2667,
+          "r2": 0.7384,
+          "qwk": 0.8492,
+          "pearson": 0.8692
+        },
+        "Q2": {
+          "mae": 1.0417,
+          "rmse": 1.3115,
+          "r2": 0.7195,
+          "qwk": 0.8335,
+          "pearson": 0.866
+        },
+        "Q3": {
+          "mae": 1.1423,
+          "rmse": 1.3597,
+          "r2": 0.6985,
+          "qwk": 0.8417,
+          "pearson": 0.8553
+        },
+        "Q4": {
+          "mae": 0.9511,
+          "rmse": 1.1739,
+          "r2": 0.7753,
+          "qwk": 0.8496,
+          "pearson": 0.8873
+        },
+        "Q5": {
+          "mae": 1.0587,
+          "rmse": 1.326,
+          "r2": 0.7133,
+          "qwk": 0.8232,
+          "pearson": 0.8524
+        }
+      }
+    },
+    "GradientBoosting": {
+      "overall": {
+        "mae": 1.0079,
+        "rmse": 1.2498,
+        "r2": 0.7453,
+        "qwk": 0.8613,
+        "pearson": 0.8708
+      },
+      "human_only": {
+        "mae": 0.6163,
+        "rmse": 0.8023,
+        "r2": 0.4851,
+        "qwk": 0.7292,
+        "pearson": 0.7561
+      },
+      "synthetic_only": {
+        "mae": 1.076,
+        "rmse": 1.3121,
+        "r2": 0.679,
+        "qwk": 0.8312,
+        "pearson": 0.8448
+      },
+      "human_weighted_mae": 0.8622,
+      "folds": {
+        "Q1": {
+          "mae": 1.0906,
+          "rmse": 1.324,
+          "r2": 0.7142,
+          "qwk": 0.8426,
+          "pearson": 0.8748
+        },
+        "Q2": {
+          "mae": 1.1321,
+          "rmse": 1.3623,
+          "r2": 0.6974,
+          "qwk": 0.8277,
+          "pearson": 0.8532
+        },
+        "Q3": {
+          "mae": 1.0094,
+          "rmse": 1.2375,
+          "r2": 0.7503,
+          "qwk": 0.8743,
+          "pearson": 0.884
+        },
+        "Q4": {
+          "mae": 0.8632,
+          "rmse": 1.0749,
+          "r2": 0.8116,
+          "qwk": 0.8908,
+          "pearson": 0.9012
+        },
+        "Q5": {
+          "mae": 0.9442,
+          "rmse": 1.2306,
+          "r2": 0.7531,
+          "qwk": 0.867,
+          "pearson": 0.8763
+        }
+      }
+    }
+  },
+  "selected_model": "GradientBoosting",
+  "selected_model_metrics": {
+    "overall": {
+      "mae": 1.0079,
+      "rmse": 1.2498,
+      "r2": 0.7453,
+      "qwk": 0.8613,
+      "pearson": 0.8708
+    },
+    "human_only": {
+      "mae": 0.6163,
+      "rmse": 0.8023,
+      "r2": 0.4851,
+      "qwk": 0.7292,
+      "pearson": 0.7561
+    },
+    "synthetic_only": {
+      "mae": 1.076,
+      "rmse": 1.3121,
+      "r2": 0.679,
+      "qwk": 0.8312,
+      "pearson": 0.8448
+    },
+    "human_weighted_mae": 0.8622,
+    "folds": {
+      "Q1": {
+        "mae": 1.0906,
+        "rmse": 1.324,
+        "r2": 0.7142,
+        "qwk": 0.8426,
+        "pearson": 0.8748
+      },
+      "Q2": {
+        "mae": 1.1321,
+        "rmse": 1.3623,
+        "r2": 0.6974,
+        "qwk": 0.8277,
+        "pearson": 0.8532
+      },
+      "Q3": {
+        "mae": 1.0094,
+        "rmse": 1.2375,
+        "r2": 0.7503,
+        "qwk": 0.8743,
+        "pearson": 0.884
+      },
+      "Q4": {
+        "mae": 0.8632,
+        "rmse": 1.0749,
+        "r2": 0.8116,
+        "qwk": 0.8908,
+        "pearson": 0.9012
+      },
+      "Q5": {
+        "mae": 0.9442,
+        "rmse": 1.2306,
+        "r2": 0.7531,
+        "qwk": 0.867,
+        "pearson": 0.8763
+      }
+    }
+  },
+  "note": "Whole-question hold-out evaluation is used to reduce synthetic/template leakage. Exact duplicate conflicts are cleaned. Human-scored examples receive greater weight. Raw answer length has been replaced by a capped 70% adequacy feature so unnecessary verbosity does not earn additional credit."
+}

@@ -1,0 +1,84 @@
+{
+  "winner": "E_adequacy_70",
+  "results": {
+    "A_current_length": {
+      "weighted_mae": 0.8802,
+      "human_mae": 0.6868,
+      "overall_mae": 0.9949,
+      "qwk": 0.8539,
+      "feature_importance": {
+        "length_ratio": 0.4931,
+        "reference_token_recall": 0.1702,
+        "student_token_precision": 0.098,
+        "keyword_coverage": 0.0814,
+        "reference_semantic_similarity": 0.0711,
+        "question_semantic_similarity": 0.0391,
+        "rubric_semantic_similarity": 0.025,
+        "rubric_semantic_coverage": 0.022
+      }
+    },
+    "B_no_length": {
+      "weighted_mae": 0.9754,
+      "human_mae": 0.7595,
+      "overall_mae": 1.1033,
+      "qwk": 0.8072,
+      "feature_importance": {
+        "reference_token_recall": 0.3471,
+        "student_token_precision": 0.2171,
+        "keyword_coverage": 0.1762,
+        "reference_semantic_similarity": 0.1321,
+        "question_semantic_similarity": 0.0773,
+        "rubric_semantic_similarity": 0.0291,
+        "rubric_semantic_coverage": 0.0211
+      }
+    },
+    "C_adequacy_50": {
+      "weighted_mae": 0.8511,
+      "human_mae": 0.6483,
+      "overall_mae": 0.9714,
+      "qwk": 0.8421,
+      "feature_importance": {
+        "length_adequacy_50": 0.4702,
+        "reference_token_recall": 0.1734,
+        "student_token_precision": 0.1312,
+        "reference_semantic_similarity": 0.0745,
+        "keyword_coverage": 0.0664,
+        "question_semantic_similarity": 0.0318,
+        "rubric_semantic_similarity": 0.0276,
+        "rubric_semantic_coverage": 0.0248
+      }
+    },
+    "D_adequacy_60": {
+      "weighted_mae": 0.8721,
+      "human_mae": 0.6105,
+      "overall_mae": 1.0271,
+      "qwk": 0.84,
+      "feature_importance": {
+        "length_adequacy_60": 0.5609,
+        "reference_token_recall": 0.1464,
+        "student_token_precision": 0.1028,
+        "reference_semantic_similarity": 0.0561,
+        "keyword_coverage": 0.0539,
+        "question_semantic_similarity": 0.0297,
+        "rubric_semantic_similarity": 0.0275,
+        "rubric_semantic_coverage": 0.0228
+      }
+    },
+    "E_adequacy_70": {
+      "weighted_mae": 0.8673,
+      "human_mae": 0.5635,
+      "overall_mae": 1.0473,
+      "qwk": 0.8395,
+      "feature_importance": {
+        "length_adequacy_70": 0.6284,
+        "reference_token_recall": 0.124,
+        "student_token_precision": 0.0818,
+        "reference_semantic_similarity": 0.0521,
+        "keyword_coverage": 0.0396,
+        "question_semantic_similarity": 0.0279,
+        "rubric_semantic_similarity": 0.0253,
+        "rubric_semantic_coverage": 0.0208
+      }
+    }
+  }
+}

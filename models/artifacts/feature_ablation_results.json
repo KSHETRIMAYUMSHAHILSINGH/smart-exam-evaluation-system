@@ -1,0 +1,125 @@
+{
+  "winner": "A_current_all",
+  "evaluation": "Leave-One-Question-Out cross-validation",
+  "results": {
+    "A_current_all": {
+      "features": [
+        "reference_semantic_similarity",
+        "question_semantic_similarity",
+        "rubric_semantic_similarity",
+        "rubric_semantic_coverage",
+        "keyword_coverage",
+        "reference_token_recall",
+        "student_token_precision",
+        "length_ratio"
+      ],
+      "weighted_mae": 0.8802,
+      "human_mae": 0.6868,
+      "overall_mae": 0.9949,
+      "qwk": 0.8539,
+      "pearson": 0.8705,
+      "feature_importance": {
+        "length_ratio": 0.4931,
+        "reference_token_recall": 0.1702,
+        "student_token_precision": 0.098,
+        "keyword_coverage": 0.0814,
+        "reference_semantic_similarity": 0.0711,
+        "question_semantic_similarity": 0.0391,
+        "rubric_semantic_similarity": 0.025,
+        "rubric_semantic_coverage": 0.022
+      }
+    },
+    "B_no_length": {
+      "features": [
+        "reference_semantic_similarity",
+        "question_semantic_similarity",
+        "rubric_semantic_similarity",
+        "rubric_semantic_coverage",
+        "keyword_coverage",
+        "reference_token_recall",
+        "student_token_precision"
+      ],
+      "weighted_mae": 0.9754,
+      "human_mae": 0.7595,
+      "overall_mae": 1.1033,
+      "qwk": 0.8072,
+      "pearson": 0.8361,
+      "feature_importance": {
+        "reference_token_recall": 0.3471,
+        "student_token_precision": 0.2171,
+        "keyword_coverage": 0.1762,
+        "reference_semantic_similarity": 0.1321,
+        "question_semantic_similarity": 0.0773,
+        "rubric_semantic_similarity": 0.0291,
+        "rubric_semantic_coverage": 0.0211
+      }
+    },
+    "C_no_length_no_precision": {
+      "features": [
+        "reference_semantic_similarity",
+        "question_semantic_similarity",
+        "rubric_semantic_similarity",
+        "rubric_semantic_coverage",
+        "keyword_coverage",
+        "reference_token_recall"
+      ],
+      "weighted_mae": 1.2294,
+      "human_mae": 1.0767,
+      "overall_mae": 1.3199,
+      "qwk": 0.6973,
+      "pearson": 0.739,
+      "feature_importance": {
+        "reference_token_recall": 0.4311,
+        "keyword_coverage": 0.1918,
+        "reference_semantic_similarity": 0.1819,
+        "question_semantic_similarity": 0.1218,
+        "rubric_semantic_similarity": 0.0447,
+        "rubric_semantic_coverage": 0.0286
+      }
+    },
+    "D_balanced_semantic": {
+      "features": [
+        "reference_semantic_similarity",
+        "question_semantic_similarity",
+        "rubric_semantic_similarity",
+        "rubric_semantic_coverage",
+        "keyword_coverage",
+        "reference_token_recall"
+      ],
+      "weighted_mae": 1.2294,
+      "human_mae": 1.0767,
+      "overall_mae": 1.3199,
+      "qwk": 0.6973,
+      "pearson": 0.739,
+      "feature_importance": {
+        "reference_token_recall": 0.4311,
+        "keyword_coverage": 0.1918,
+        "reference_semantic_similarity": 0.1819,
+        "question_semantic_similarity": 0.1218,
+        "rubric_semantic_similarity": 0.0447,
+        "rubric_semantic_coverage": 0.0286
+      }
+    },
+    "E_meaning_concepts_only": {
+      "features": [
+        "reference_semantic_similarity",
+        "question_semantic_similarity",
+        "rubric_semantic_similarity",
+        "rubric_semantic_coverage",
+        "keyword_coverage"
+      ],
+      "weighted_mae": 1.2943,
+      "human_mae": 1.1109,
+      "overall_mae": 1.4029,
+      "qwk": 0.6666,
+      "pearson": 0.704,
+      "feature_importance": {
+        "keyword_coverage": 0.3916,
+        "reference_semantic_similarity": 0.3363,
+        "question_semantic_similarity": 0.171,
+        "rubric_semantic_similarity": 0.0659,
+        "rubric_semantic_coverage": 0.0352
+      }
+    }
+  }
+}

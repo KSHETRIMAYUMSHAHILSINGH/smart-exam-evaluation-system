@@ -1,0 +1,234 @@
+{
+  "engine_version": "Qwen V3.3.7",
+  "status": "FROZEN DEVELOPMENT BASELINE",
+  "frozen_at_local": "2026-08-09T22:51:37",
+  "engine": {
+    "path": "scripts/qwen_v337_engine.py",
+    "sha256": "3b8b189c93a11c49ad1a8ed3bc3c72296eb1e278d6de45bcdf950b60535b10fb"
+  },
+  "base_dependency": {
+    "path": "scripts/robustness_test_qwen_v33.py",
+    "sha256": "f2ae96b94c0bb062be7ba85530ff59d642ac61c141a1054e8cc105b9293cca2e"
+  },
+  "human_calibration": {
+    "path": "data/human_calibration_50_completed.csv",
+    "sha256": "1a571cb664125099643cce3c89cb5adbbb2e6a46c23a891cfd92946c270a92f2"
+  },
+  "model": {
+    "path": "models/Qwen3.5-4B-MLX-4bit",
+    "file_count": 39,
+    "inventory_fingerprint": "55a175151ff3d64256a1530e95745ea3080a24d6765f092a05de9fc05338026d",
+    "files": [
+      {
+        "path": ".cache/huggingface/.gitignore",
+        "size": 1,
+        "sha256": "684888c0ebb17f374298b65ee2807526c066094c701bcc7ebbe1c1095f494fc1"
+      },
+      {
+        "path": ".cache/huggingface/CACHEDIR.TAG",
+        "size": 191,
+        "sha256": "f6572428f6d5e1575e73a1502895a8731f10757dfbb634909c6e154b849af91d"
+      },
+      {
+        "path": ".cache/huggingface/download/.gitattributes.lock",
+        "size": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": ".cache/huggingface/download/.gitattributes.metadata",
+        "size": 100,
+        "sha256": "9a40d713d7c5505d1d49ca2f4dced15a3c826d4774e1102e7d4c89ba9f6806ac"
+      },
+      {
+        "path": ".cache/huggingface/download/README.md.lock",
+        "size": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": ".cache/huggingface/download/README.md.metadata",
+        "size": 100,
+        "sha256": "d53f71ff567146d1ae9963761628c27b8232446f38a8bc6ff34e66778aab399a"
+      },
+      {
+        "path": ".cache/huggingface/download/chat_template.jinja.lock",
+        "size": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": ".cache/huggingface/download/chat_template.jinja.metadata",
+        "size": 100,
+        "sha256": "036947f474eb3454ffa1d4e1aa6ca0e87d89641cc8f4e3855763b957ec1572ca"
+      },
+      {
+        "path": ".cache/huggingface/download/config.json.lock",
+        "size": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": ".cache/huggingface/download/config.json.metadata",
+        "size": 100,
+        "sha256": "05d1046e981626bb4ef712fb40434616ee9f7bf3bfc51c0cc15ab857c1e3d47a"
+      },
+      {
+        "path": ".cache/huggingface/download/model.safetensors.index.json.lock",
+        "size": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": ".cache/huggingface/download/model.safetensors.index.json.metadata",
+        "size": 100,
+        "sha256": "3a25c41308287e07d99be5cd28b447d61db3bd3fe4a734130867135c2485b9f4"
+      },
+      {
+        "path": ".cache/huggingface/download/model.safetensors.lock",
+        "size": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": ".cache/huggingface/download/model.safetensors.metadata",
+        "size": 124,
+        "sha256": "5d8f0129e69a8027c88a94538c419670210ae8a97e97db6cf14f295c51dded07"
+      },
+      {
+        "path": ".cache/huggingface/download/preprocessor_config.json.lock",
+        "size": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": ".cache/huggingface/download/preprocessor_config.json.metadata",
+        "size": 100,
+        "sha256": "569984e2a0432e28e147242a6d55cdf0e21a6cde9b9c82734277a6e601d2e431"
+      },
+      {
+        "path": ".cache/huggingface/download/processor_config.json.lock",
+        "size": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": ".cache/huggingface/download/processor_config.json.metadata",
+        "size": 100,
+        "sha256": "b629a9d3579dff4527712eb316206a0b406d67a013470c8f077dd8ff40943330"
+      },
+      {
+        "path": ".cache/huggingface/download/tokenizer.json.lock",
+        "size": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": ".cache/huggingface/download/tokenizer.json.metadata",
+        "size": 124,
+        "sha256": "a96c53be72c5aaadefc1e4e7211311832da4091d7d30326de393b20296c89ff4"
+      },
+      {
+        "path": ".cache/huggingface/download/tokenizer_config.json.lock",
+        "size": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": ".cache/huggingface/download/tokenizer_config.json.metadata",
+        "size": 100,
+        "sha256": "ce8ef9b8e8e659c380a60ec712e7a8b8488137f17ae71cf435f5039b5ddb21bf"
+      },
+      {
+        "path": ".cache/huggingface/download/video_preprocessor_config.json.lock",
+        "size": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": ".cache/huggingface/download/video_preprocessor_config.json.metadata",
+        "size": 100,
+        "sha256": "8153eeb88c0d7af12dfa79ae1069ac0737dbf058ef59577bd5fd59679698f818"
+      },
+      {
+        "path": ".cache/huggingface/download/vocab.json.lock",
+        "size": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": ".cache/huggingface/download/vocab.json.metadata",
+        "size": 101,
+        "sha256": "4a0fa742031070e20f139705c6fab10197ee705fe77822ad64f8ae5537ae29d3"
+      },
+      {
+        "path": ".cache/huggingface/trees/32f3e8ecf65426fc3306969496342d504bfa13f3.json",
+        "size": 1702,
+        "sha256": "d723a0a4b42bd4727c3f0276093b886edb665e275b4448f7e3d0fc3166437765"
+      },
+      {
+        "path": ".gitattributes",
+        "size": 1570,
+        "sha256": "34448b82c17d60fec9b65b1f093c115ddbaadc04beb1b0140b6bfed2e012a930"
+      },
+      {
+        "path": "README.md",
+        "size": 2273,
+        "sha256": "49c0a725bdd22705d2d34b93cfe20463b673e3339ce4de8b81a340c05cfef5bc"
+      },
+      {
+        "path": "chat_template.jinja",
+        "size": 7756,
+        "sha256": "a4aee8afcf2e0711942cf848899be66016f8d14a889ff9ede07bca099c28f715"
+      },
+      {
+        "path": "config.json",
+        "size": 3366,
+        "sha256": "f3efc81b2ea8d96a45301037d3ccccbcccdef44a961845c87f286aaddbc6eaaa"
+      },
+      {
+        "path": "model.safetensors",
+        "size": 3034300695,
+        "sha256": "5fb9acd0246866381cf8c5c354c6db1019f6498eec4ccb4f5edcc71ffeacb2db"
+      },
+      {
+        "path": "model.safetensors.index.json",
+        "size": 101944,
+        "sha256": "52e534c41f7b97708329c85f762e5882bf48bd5955a422c6ae74eba321e6048a"
+      },
+      {
+        "path": "preprocessor_config.json",
+        "size": 390,
+        "sha256": "27225450ac9c6529872ee1924fcb0962ff5634834f817040f444118116f4e516"
+      },
+      {
+        "path": "processor_config.json",
+        "size": 1300,
+        "sha256": "14932921ca485d458a04dafd8069fbb0a4505622a48208d19ed247115801385b"
+      },
+      {
+        "path": "tokenizer.json",
+        "size": 19989343,
+        "sha256": "87a7830d63fcf43bf241c3c5242e96e62dd3fdc29224ca26fed8ea333db72de4"
+      },
+      {
+        "path": "tokenizer_config.json",
+        "size": 1139,
+        "sha256": "e98f1901ac6f0adff67b1d540bfa0c36ac1a0cf59eb72ed78146ef89aafa1182"
+      },
+      {
+        "path": "video_preprocessor_config.json",
+        "size": 385,
+        "sha256": "7768af27c1fafa9cc9011c1dc20067e03f8915e03b63504550e11d5066986d13"
+      },
+      {
+        "path": "vocab.json",
+        "size": 6722759,
+        "sha256": "ce99b4cb2983d118806ce0a8b777a35b093e2000a503ebde25853284c9dfa003"
+      }
+    ]
+  },
+  "known_results": {
+    "human_calibration_completed_answers": 12,
+    "human_mae": 1.083,
+    "human_rmse": 1.547,
+    "human_qwk": 0.447,
+    "human_pearson": 0.965,
+    "opened_blind_v1": "54/70 (77.1%)",
+    "opened_blind_v2": "67/70 (95.7%)"
+  },
+  "notes": [
+    "Seed 42 is fixed in the engine.",
+    "Deterministic descriptive non-answer preflight is enabled.",
+    "Opened Blind V1 and V2 are development data, not blind final tests.",
+    "Do not tune this frozen file; create a new engine version."
+  ]
+}
